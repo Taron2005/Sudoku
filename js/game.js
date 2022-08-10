@@ -50,6 +50,12 @@ function WriteNumber() {
     }
   }
 }
+for (let cube of cube__for__number) {
+  cube.addEventListener("keydown", (e) => {
+    console.log(e.key);
+  });
+}
+
 function putNumber() {
   for (let i = 0; i < boardNumbers.length; i++) {
     for (let j = 0; j < boardNumbers[i].length; j++) {
@@ -69,13 +75,21 @@ function putNumber() {
   }
 }
 function selectNumber() {
+  document.addEventListener("keydown", (e) => {
+    if (e.keyCode >= 49 && e.keyCode <= 57) {
+      selectedNumber = e.key;
+      for (d of num) {
+        d.style.border = "1px solid white";
+      }
+      num[e.key - 1].style.border = "4px solid yellow";
+    }
+  });
   for (let selnum of num) {
     selnum.addEventListener("click", () => {
       for (d of num) {
         d.style.border = "1px solid white";
       }
       selectedNumber = selnum.textContent;
-
       selnum.style.border = "4px solid yellow";
     });
   }
@@ -85,7 +99,6 @@ function win() {
   for (let cube of cube__for__number) {
     if (cube.textContent != "") {
       counter++;
-      console.log(counter);
     }
   }
   if (moves__number.textContent == 48) {
