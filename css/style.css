@@ -1,0 +1,118 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+.menu {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.menu.active {
+  display: flex;
+}
+.menu .start {
+  width: 280px;
+  height: 50px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: antiquewhite;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.game__page {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.game__page.active {
+  display: flex;
+}
+.game__page h1 {
+  font-size: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+.game__page p.moves__number {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: orange;
+  text-align: center;
+}
+.board {
+  width: 540px;
+  height: 540px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.board .row {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.board .row:nth-child(3) {
+  border-bottom: 2px solid;
+}
+.board .row:nth-child(6) {
+  border-bottom: 2px solid;
+}
+.cube__for__number {
+  width: 60px;
+  height: 100%;
+  border: 1px solid #333;
+  background-color: rgba(128, 128, 128, 0.26);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(35, 153, 60);
+  font-size: 2rem;
+}
+.cube__for__number:nth-child(4) {
+  border-left: 2px solid black;
+}
+.cube__for__number:nth-child(7) {
+  border-left: 2px solid black;
+}
+.numbers__for__selection {
+  width: 540px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.numbers__for__selection div {
+  width: 60px;
+  height: 100%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border: 1px solid;
+  color: wheat;
+  cursor: pointer;
+}
+.numbers__for__selection div:nth-child(1) {
+  border: 4px solid yellow;
+}
