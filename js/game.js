@@ -150,18 +150,28 @@ function ChangeRows() {
   return result;
 }
 function makeBoard() {
+  let counter = 1;
   let testboard = [[], [], [], [], [], [], [], [], []];
   for (i = 0; i < solution.length; i++) {
-    let min = Math.ceil(0);
-    let max = Math.floor(1);
-    let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     for (j = 0; j < solution[i].length; j++) {
-      if (solution[i][j] % 2 == randomNum) {
+      if (
+        solution[i][j] == counter ||
+        solution[i][j] == counter - 1 ||
+        solution[i][j] == counter + 1 ||
+        solution[i][j] == counter - 2 ||
+        solution[i][j] == counter + 2 ||
+        solution[i][j] == counter - 3
+      ) {
+        counter++;
         testboard[i].push(solution[i][j]);
       } else {
-        testboard[i].push("-");
+        testboard[i].push("");
+      }
+      if (counter == 10) {
+        counter = 1;
       }
     }
   }
+
   boardNumbers = testboard;
 }
