@@ -19,23 +19,15 @@ let boardNumbers = [
   "67-83----",
   "81--45---",
 ];
-let solution = [
-  "387491625",
-  "241568379",
-  "569327418",
-  "758619234",
-  "123784596",
-  "496253187",
-  "934176852",
-  "675832941",
-  "812945763",
-];
+let solution;
 startBtn.addEventListener("click", () => {
   gamePage.classList.add("active");
   menu.classList.remove("active");
   game();
 });
 function game() {
+  ChangeBoxes();
+  makeBoard();
   WriteNumber();
   selectNumber();
   putNumber();
@@ -51,9 +43,7 @@ function WriteNumber() {
   }
 }
 for (let cube of cube__for__number) {
-  cube.addEventListener("keydown", (e) => {
-    console.log(e.key);
-  });
+  cube.addEventListener("keydown", (e) => {});
 }
 
 function putNumber() {
@@ -119,4 +109,59 @@ function win() {
     gamePage.classList.remove("active");
     menu.classList.add("active");
   }
+}
+
+function ChangeBoxes() {
+  let boxesArr = ChangeRows();
+  let ChangedBoxes = [];
+  for (let i = 0; i < 3; i++) {
+    let min = Math.ceil(0);
+    let max = Math.floor(boxesArr.length - 1);
+    let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    ChangedBoxes.push(boxesArr[randomNum]);
+    boxesArr.splice(randomNum, 1);
+  }
+  solution = ChangedBoxes[0].concat(ChangedBoxes[1].concat(ChangedBoxes[2]));
+}
+function ChangeRows() {
+  let rows = [
+    ["387491625", "241568379", "569327418"],
+    ["758619234", "123784596", "496253187"],
+    ["934176852", "675832941", "812945763"],
+  ];
+
+  let Changedrows = [];
+  let result = [[], [], []];
+
+  for (let i = 0; i < rows.length; i++) {
+    for (let j = 0; j < 3; j++) {
+      let min = Math.ceil(0);
+      let max = Math.floor(rows[i].length - 1);
+      let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+      Changedrows.push(rows[i][randomNum]);
+      rows[i].splice(randomNum, 1);
+    }
+  }
+  for (i = 0; i < 3; i++) {
+    result[0].push(Changedrows[i]);
+    result[1].push(Changedrows[i + 3]);
+    result[2].push(Changedrows[i + 6]);
+  }
+  return result;
+}
+function makeBoard() {
+  let testboard = [[], [], [], [], [], [], [], [], []];
+  for (i = 0; i < solution.length; i++) {
+    let min = Math.ceil(0);
+    let max = Math.floor(1);
+    let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    for (j = 0; j < solution[i].length; j++) {
+      if (solution[i][j] % 3 == randomNum) {
+        testboard[i].push(solution[i][j]);
+      } else {
+        testboard[i].push("-");
+      }
+    }
+  }
+  boardNumbers = testboard;
 }
