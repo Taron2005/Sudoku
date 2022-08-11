@@ -153,7 +153,7 @@ function makeBoard() {
   let testboard = [[], [], [], [], [], [], [], [], []];
   for (i = 0; i < solution.length; i++) {
     let min = Math.ceil(0);
-    let max = Math.floor(2);
+    let max = Math.floor(1);
     let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
     for (j = 0; j < solution[i].length; j++) {
       if (solution[i][j] % 2 == randomNum) {
