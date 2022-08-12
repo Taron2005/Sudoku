@@ -8,18 +8,9 @@ let menu = document.querySelector(".menu");
 let startBtn = document.querySelector(".menu .start");
 let selectedNumber = 1;
 
-let boardNumbers = [
-  "--74916-5",
-  "2---6-3-9",
-  "-----7-1-",
-  "-586----4",
-  "--3----9-",
-  "--62--187",
-  "9-4-7---2",
-  "67-83----",
-  "81--45---",
-];
+let boardNumbers = [];
 let solution;
+let EmptyCells = 0;
 startBtn.addEventListener("click", () => {
   gamePage.classList.add("active");
   menu.classList.remove("active");
@@ -35,9 +26,9 @@ function game() {
 function WriteNumber() {
   for (let i = 0; i < boardNumbers.length; i++) {
     for (let j = 0; j < boardNumbers[i].length; j++) {
-      if (boardNumbers[i][j] != "-") {
+      if (boardNumbers[i][j] != "") {
         row[i].children[j].textContent = boardNumbers[i][j];
-        row[i].children[j].style.backgroundColor = "rgba(128, 128, 128, 0.788)";
+        row[i].children[j].style.backgroundColor = "black";
       }
     }
   }
@@ -91,13 +82,13 @@ function win() {
       counter++;
     }
   }
-  if (moves__number.textContent == 48) {
+  if (moves__number.textContent == EmptyCells + 4) {
     alert("Դուք կորցրեցիք 50% զեղչ շահելու հնարավորությունը");
   }
-  if (moves__number.textContent == 54) {
+  if (moves__number.textContent == EmptyCells + 8) {
     alert("Դուք կորցրեցիք 24% զեղչ շահելու հնարավորությունը");
   }
-  if (moves__number.textContent == 60) {
+  if (moves__number.textContent == EmptyCells + 12) {
     alert("Դուք կորցրեցիք զեղչ շահելու հնարավորությունը");
   }
   if (counter == 81) {
@@ -159,19 +150,19 @@ function makeBoard() {
         solution[i][j] == counter - 1 ||
         solution[i][j] == counter + 1 ||
         solution[i][j] == counter - 2 ||
-        solution[i][j] == counter + 2 ||
-        solution[i][j] == counter - 3
+        solution[i][j] == counter + 2
       ) {
         counter++;
         testboard[i].push(solution[i][j]);
       } else {
         testboard[i].push("");
+        EmptyCells++;
       }
       if (counter == 10) {
         counter = 1;
       }
     }
   }
-
+  console.log(EmptyCells);
   boardNumbers = testboard;
 }

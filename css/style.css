@@ -71,16 +71,16 @@
   align-items: center;
 }
 .board .row:nth-child(3) {
-  border-bottom: 2px solid;
+  border-bottom: 3px solid white;
 }
 .board .row:nth-child(6) {
-  border-bottom: 2px solid;
+  border-bottom: 3px solid white;
 }
 .cube__for__number {
   width: 60px;
   height: 100%;
   border: 1px solid #333;
-  background-color: rgba(128, 128, 128, 0.26);
+  background-color: rgba(0, 0, 0, 0.849);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -89,10 +89,10 @@
   font-size: 2rem;
 }
 .cube__for__number:nth-child(4) {
-  border-left: 2px solid black;
+  border-left: 3px solid white;
 }
 .cube__for__number:nth-child(7) {
-  border-left: 2px solid black;
+  border-left: 3px solid white;
 }
 .numbers__for__selection {
   width: 540px;
@@ -104,7 +104,7 @@
 .numbers__for__selection div {
   width: 60px;
   height: 100%;
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.925);
   display: flex;
   justify-content: center;
   align-items: center;
