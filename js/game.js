@@ -95,6 +95,7 @@ function win() {
     alert("You won");
     for (let cube of cube__for__number) {
       cube.textContent = "";
+      cube.style.backgroundColor = "rgba(0, 0, 0, 0.849)";
     }
     moves__number.textContent = 0;
     gamePage.classList.remove("active");
@@ -113,6 +114,7 @@ function ChangeBoxes() {
     boxesArr.splice(randomNum, 1);
   }
   solution = ChangedBoxes[0].concat(ChangedBoxes[1].concat(ChangedBoxes[2]));
+  changeColumns();
 }
 function ChangeRows() {
   let rows = [
@@ -140,6 +142,37 @@ function ChangeRows() {
   }
   return result;
 }
+function changeColumns() {
+  let arrForModify = solution;
+  let columns = [
+    [[], [], []],
+    [[], [], []],
+    [[], [], []],
+  ];
+  let Changedcolumns = [];
+  for (let i = 0; i < arrForModify.length; i++) {
+    columns[0][0].push([arrForModify[i][0]]);
+    columns[0][1].push([arrForModify[i][1]]);
+    columns[0][2].push([arrForModify[i][2]]);
+    columns[1][0].push([arrForModify[i][3]]);
+    columns[1][1].push([arrForModify[i][4]]);
+    columns[1][2].push([arrForModify[i][5]]);
+    columns[2][0].push([arrForModify[i][6]]);
+    columns[2][1].push([arrForModify[i][7]]);
+    columns[2][2].push([arrForModify[i][8]]);
+  }
+  for (let i = 0; i < columns.length; i++) {
+    for (let j = 0; j < 3; j++) {
+      let min = Math.ceil(0);
+      let max = Math.floor(columns[i].length - 1);
+      let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+      Changedcolumns.push(columns[i][randomNum]);
+      columns[i].splice(randomNum, 1);
+    }
+  }
+  solution = Changedcolumns;
+  return solution;
+}
 function makeBoard() {
   let counter = 1;
   let testboard = [[], [], [], [], [], [], [], [], []];
@@ -149,7 +182,6 @@ function makeBoard() {
         solution[i][j] == counter ||
         solution[i][j] == counter - 1 ||
         solution[i][j] == counter + 1 ||
-        solution[i][j] == counter - 2 ||
         solution[i][j] == counter + 2
       ) {
         counter++;
@@ -163,6 +195,5 @@ function makeBoard() {
       }
     }
   }
-  console.log(EmptyCells);
   boardNumbers = testboard;
 }
