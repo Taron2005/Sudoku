@@ -70,7 +70,7 @@
   font-size: 2rem;
   font-weight: 500;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: orange;
+  color: #333;
   text-align: center;
 }
 .board {
@@ -80,6 +80,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 7px;
+  overflow: hidden;
 }
 .board .row {
   width: 100%;
@@ -89,28 +91,30 @@
   align-items: center;
 }
 .board .row:nth-child(3) {
-  border-bottom: 3px solid white;
+  margin-bottom: 0.25rem;
 }
 .board .row:nth-child(6) {
-  border-bottom: 3px solid white;
+  margin-bottom: 0.25rem;
 }
 .cube__for__number {
+  padding: 1rem;
   width: 60px;
   height: 100%;
-  border: 1px solid #333;
-  background-color: rgba(0, 0, 0, 0.849);
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.842);
+  border-radius: 7px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(35, 153, 60);
+  color: white;
   font-size: 1.5rem;
 }
 .cube__for__number:nth-child(4) {
-  border-left: 3px solid white;
+  margin-left: 0.25rem;
 }
 .cube__for__number:nth-child(7) {
-  border-left: 3px solid white;
+  margin-left: 0.25rem;
 }
 .numbers__for__selection {
   width: 540px;
@@ -123,12 +127,13 @@
   width: 60px;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.925);
+  border-radius: 7px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
   border: 1px solid;
-  color: wheat;
+  color: white;
   cursor: pointer;
 }
 .numbers__for__selection div:nth-child(1) {
