@@ -41,12 +41,7 @@
 .game__page.active {
   display: flex;
 }
-.game__page h1 {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #333;
-  text-align: center;
-  border-bottom: 1px solid #333;
-}
+
 .game__page p.moves__number {
   font-size: 2rem;
   font-weight: 500;
