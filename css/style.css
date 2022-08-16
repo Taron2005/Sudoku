@@ -99,6 +99,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, #000f);
 }
 .numbers__for__selection div {
   width: 60px;
