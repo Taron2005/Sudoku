@@ -97,7 +97,6 @@
   margin-bottom: 0.25rem;
 }
 .cube__for__number {
-  padding: 1rem;
   width: 60px;
   height: 100%;
   border: 1px solid white;
@@ -159,6 +158,9 @@
   }
 }
 @media screen and (max-width: 450px) {
+  .numbers__for__selection div {
+    height: 40px;
+  }
   .board {
     width: 320px;
     height: 320px;
