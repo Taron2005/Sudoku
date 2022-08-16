@@ -160,8 +160,8 @@
 }
 @media screen and (max-width: 450px) {
   .board {
-    width: 270px;
-    height: 270px;
+    width: 320px;
+    height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -169,7 +169,6 @@
   }
   .cube__for__number {
     width: 30px;
-    font-size: 1.4rem;
   }
   .board .row {
     height: 30px;
