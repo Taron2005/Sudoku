@@ -62,7 +62,7 @@ function selectNumber() {
       for (d of num) {
         d.style.border = "1px solid white";
       }
-      num[e.key - 1].style.border = "4px solid yellow";
+      num[e.key - 1].style.border = "4px  dashed white";
     }
   });
   for (let selnum of num) {
@@ -71,7 +71,7 @@ function selectNumber() {
         d.style.border = "1px solid white";
       }
       selectedNumber = selnum.textContent;
-      selnum.style.border = "4px solid yellow";
+      selnum.style.border = "4px  dashed white";
     });
   }
 }
@@ -92,7 +92,7 @@ function win() {
     alert("Դուք կորցրեցիք զեղչ շահելու հնարավորությունը");
   }
   if (counter == 81) {
-    alert("You won");
+    alert("You finished the game");
     for (let cube of cube__for__number) {
       cube.textContent = "";
       cube.style.backgroundColor = "rgba(0, 0, 0, 0.849)";
